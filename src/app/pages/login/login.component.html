@@ -1,0 +1,8 @@
+<h1>Login</h1>
+<form [formGroup]="form">
+    <label for="userName"></label>
+    <input type="text" id="userName" formControlName="userName" /><br />
+    <label for="password"></label>
+    <input type="password" id="password" formControlName="password" /><br />
+    <button type="button" [disabled]="form.invalid" (click)="submit()">Login</button>
+</form>

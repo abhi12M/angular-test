@@ -1,0 +1,7 @@
+<h1>Simple List Viewer 1</h1>
+
+<h1>User Names</h1>
+<input type="search" placeholder="Search users.." (keyup)="search($event)" />
+<ul>
+    <li *ngFor="let user of filteredUserList">{{user?.name}}</li>
+</ul>

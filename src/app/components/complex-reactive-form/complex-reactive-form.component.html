@@ -1,0 +1,70 @@
+<h1>Complex Form Design with Advanced Validations 2.2</h1>
+
+<form [formGroup]="form">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" formControlName="fullName" /><br>
+    <div *ngIf="fullName?.invalid && (fullName?.dirty || fullName?.touched)" class="danger">
+        <div *ngIf="fullName?.hasError('required')">
+            Full Name is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.fullName" class="danger">{{errorData?.fullName}}</div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" /><br>
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="danger">
+        <div *ngIf="email?.hasError('required')">
+            Email is required.
+        </div>
+        <div *ngIf="email?.hasError('email')">
+            Please enter correct email.
+        </div>
+    </div>
+    <div *ngIf="errorData?.email" class="danger">{{errorData?.email}}</div>
+
+    <label for="phone">Phone:</label>
+    <input type="number" id="phone" formControlName="phone" required="true" /><br />
+    <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="danger">
+        <div *ngIf="phone?.hasError('required')">
+            Phone is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.phone" class="danger">{{errorData?.phone}}</div>
+
+    <label for="zipCode">Zip Code:</label>
+    <input type="number" id="zipCode" formControlName="zipCode" /><br />
+    <div *ngIf="zipCode?.invalid && (zipCode?.dirty || zipCode?.touched)" class="danger">
+        <div *ngIf="zipCode?.hasError('required')">
+            Zip Code is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.zipCode" class="danger">{{errorData?.zipCode}}</div>
+
+    <label for="cardNumber">Card Number:</label>
+    <input type="number" id="cardNumber" formControlName="cardNumber" /><br />
+    <div *ngIf="cardNumber?.invalid && (cardNumber?.dirty || cardNumber?.touched)" class="danger">
+        <div *ngIf="cardNumber?.hasError('required')">
+            Card Number is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.cardNumber" class="danger">{{errorData?.cardNumber}}</div>
+
+    <label for="expiryDate">Expiry Date:</label>
+    <input type="date" id="expiryDate" formControlName="expiryDate" /><br />
+    <div *ngIf="expiryDate?.invalid && (expiryDate?.dirty || expiryDate?.touched)" class="danger">
+        <div *ngIf="expiryDate?.hasError('required')">
+            Expiry Date is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.expiryDate" class="danger">{{errorData?.expiryDate}}</div>
+
+    <label for="cvv">CVV:</label>
+    <input type="number" id="cvv" formControlName="cvv" /><br />
+    <div *ngIf="cvv?.invalid && (cvv?.dirty || cvv?.touched)" class="danger">
+        <div *ngIf="cvv?.hasError('required')">
+            CVV is required.
+        </div>
+    </div>
+    <div *ngIf="errorData?.cvv" class="danger">{{errorData?.cvv}}</div>
+
+    <button type="button" (click)="submit()" [disabled]="form.invalid">Submit</button>
+</form>

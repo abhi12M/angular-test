@@ -1,0 +1,28 @@
+<h1>Reactive Form Test 2.1</h1>
+<form [formGroup]="form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" /><br>
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="danger">
+        <div *ngIf="name?.hasError('required')">
+            Name is required.
+        </div>
+    </div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" /><br>
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="danger">
+        <div *ngIf="email?.hasError('required')">
+            Email is required.
+        </div>
+        <div *ngIf="email?.hasError('email')">
+            Please enter correct email.
+        </div>
+    </div>
+    <label for="message">Message:</label>
+    <input type="text" id="message" formControlName="message" /><br />
+    <div *ngIf="message?.invalid && (message?.dirty || message?.touched)" class="danger">
+        <div *ngIf="message?.hasError('required')">
+            Message is required.
+        </div>
+    </div>
+    <button type="button" (click)="submit()" [disabled]="form.invalid">Submit</button>
+</form>
